@@ -1,0 +1,41 @@
+spring:
+  zipkin:
+    base-url: http://54.254.30.227:9411
+    enabled: false
+  application:
+    name: qpon-util-service
+    app-key: ccus-c2cc3496-c9f8-4068-a83c-82841b44727b
+
+aws:
+  config:
+    requestTimeout: ${AWS_REQTIMEOUT:3000}
+    clientTimeout: ${AWS_CLIENTTIMEOUT:5000}
+
+email:
+  region: ${AWS_REGION:ap-southeast-1}
+  sender: ${AWS_EMAIL_SENDER:dev@qpon.lk}
+
+sms:
+  api:
+    key: JxLvHXlP3Sw9w4tig7KRsWJnJSnJtBTH
+    token: kJC31631611953
+    senderId: qpon
+  baseUrl: https://cloud.websms.lk
+  uri: /smsAPI?sendsms&apikey=${sms.api.key}&apitoken=${sms.api.token}&type=sms&from=${sms.api.senderId}
+
+## Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+server:
+  port: ${PORT:8085}
+  servlet:
+    context-path: /qpon-util-service
+
+ribbon:
+  ReadTimeout: ${RIBBON_TIMEOUT:6000}
+
+accessControl:
+  allowedOrigin: ${ALLOWED_ORIGIN:*}
