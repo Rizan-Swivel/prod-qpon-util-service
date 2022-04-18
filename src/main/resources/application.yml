@@ -27,7 +27,7 @@ sms:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://api.qpon.lk/eureka
 
 server:
   port: ${PORT:8085}
